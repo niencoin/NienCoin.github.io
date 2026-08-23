@@ -17,6 +17,10 @@
         content="NienCoin is an independent Proof-of-Work Layer-1 blockchain and digital currency."
     >
 
+    <!-- QR CODE LIBRARY -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+
     <style>
 
         html {
@@ -27,17 +31,27 @@
         body {
             margin: 0;
             padding: 0;
+
             background: #ffffff;
+
             color: #333333;
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             font-size: 14px;
+
             line-height: 1.55;
         }
+
 
         a {
             color: #0066a1;
             text-decoration: none;
         }
+
 
         a:hover {
             color: #003f63;
@@ -45,422 +59,1089 @@
         }
 
 
-        /*
-        ============================================================
-        HEADER
-        ============================================================
-        */
+        /* ============================================================
+           HEADER
+           ============================================================ */
 
         .top {
+
             width: 100%;
+
             background: #0b4f7c;
-            border-bottom: 1px solid #083d60;
+
+            border-bottom:
+                1px solid #083d60;
         }
 
+
         .top-inner {
+
             width: 960px;
-            max-width: calc(100% - 30px);
+
+            max-width:
+                calc(100% - 30px);
+
             margin: 0 auto;
+
             min-height: 58px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
 
-        /*
-        ============================================================
-        NIENCOIN BRAND - TOP LEFT
-        ============================================================
-        */
+        /* ============================================================
+           BRAND
+           ============================================================ */
 
         .brand {
+
             display: flex;
+
             align-items: center;
+
             text-decoration: none;
+
             flex-shrink: 0;
         }
+
 
         .brand:hover {
             text-decoration: none;
         }
 
+
         .coin-logo {
+
             width: 42px;
+
             height: 42px;
+
             margin-right: 10px;
+
             object-fit: contain;
+
             object-position: center;
+
             display: block;
+
             flex-shrink: 0;
         }
 
+
         .brand-name {
+
             color: #ffffff;
+
             font-size: 23px;
+
             font-weight: bold;
+
             letter-spacing: -0.5px;
         }
 
 
-        /*
-        ============================================================
-        NAVIGATION
-        ============================================================
-        */
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
 
         .nav {
+
             display: flex;
+
             align-items: center;
+
             gap: 4px;
         }
 
+
         .nav a {
+
             color: #ffffff;
-            padding: 7px 10px;
+
+            padding:
+                7px 10px;
+
             font-size: 13px;
-            border: 1px solid transparent;
+
+            border:
+                1px solid transparent;
         }
 
+
         .nav a:hover {
+
             background: #084367;
+
             border-color: #17648f;
+
             text-decoration: none;
         }
 
 
-        /*
-        ============================================================
-        MAIN CONTAINER
-        ============================================================
-        */
+        /* ============================================================
+           DONATE TOP BUTTON
+           ============================================================ */
+
+        .donate-top-button {
+
+            background: #f2c94c !important;
+
+            color: #222222 !important;
+
+            border:
+                1px solid #d2a900 !important;
+
+            font-weight: bold;
+
+            padding:
+                7px 12px !important;
+        }
+
+
+        .donate-top-button:hover {
+
+            background: #e5b93b !important;
+
+            color: #111111 !important;
+
+            text-decoration: none !important;
+        }
+
+
+        /* ============================================================
+           MAIN CONTAINER
+           ============================================================ */
 
         .container {
+
             width: 960px;
-            max-width: calc(100% - 30px);
+
+            max-width:
+                calc(100% - 30px);
+
             margin: 0 auto;
         }
 
 
-        /*
-        ============================================================
-        HERO
-        ============================================================
-        */
+        /* ============================================================
+           HERO
+           ============================================================ */
 
         .hero {
-            padding: 48px 0 42px;
-            border-bottom: 1px solid #d9d9d9;
+
+            padding:
+                48px 0 42px;
+
+            border-bottom:
+                1px solid #d9d9d9;
         }
 
+
         .hero h1 {
-            margin: 0 0 8px;
+
+            margin:
+                0 0 8px;
+
             color: #174f72;
+
             font-size: 38px;
+
             font-weight: normal;
+
             letter-spacing: -1px;
         }
 
+
         .hero h2 {
-            margin: 0 0 22px;
+
+            margin:
+                0 0 22px;
+
             color: #777777;
+
             font-size: 19px;
+
             font-weight: normal;
         }
 
+
         .hero p {
+
             max-width: 720px;
-            margin: 8px 0;
+
+            margin:
+                8px 0;
+
             color: #555555;
+
             font-size: 15px;
         }
 
 
-        /*
-        ============================================================
-        BUTTONS
-        ============================================================
-        */
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
 
         .buttons {
+
             margin-top: 25px;
         }
 
+
         .button {
+
             display: inline-block;
-            padding: 9px 18px;
+
+            padding:
+                9px 18px;
+
             margin-right: 7px;
+
             background: #0b6597;
-            border: 1px solid #075176;
+
+            border:
+                1px solid #075176;
+
             border-radius: 2px;
+
             color: #ffffff;
+
             font-size: 13px;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+
+            text-shadow:
+                0 -1px 0 rgba(0,0,0,0.15);
+
+            cursor: pointer;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
         }
 
+
         .button:hover {
+
             background: #084f77;
+
             color: #ffffff;
+
             text-decoration: none;
         }
 
+
         .button.secondary {
+
             background: #eeeeee;
+
             border-color: #cccccc;
+
             color: #444444;
+
             text-shadow: none;
         }
 
+
         .button.secondary:hover {
+
             background: #e2e2e2;
+
             color: #222222;
         }
 
 
-        /*
-        ============================================================
-        THREE COLUMNS
-        ============================================================
-        */
+        /* ============================================================
+           THREE COLUMNS
+           ============================================================ */
 
         .columns {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 30px;
-            padding: 36px 0;
-            border-bottom: 1px solid #dddddd;
+
+            padding:
+                36px 0;
+
+            border-bottom:
+                1px solid #dddddd;
         }
 
+
         .column h3 {
-            margin: 0 0 12px;
+
+            margin:
+                0 0 12px;
+
             color: #164f73;
+
             font-size: 20px;
+
             font-weight: normal;
         }
 
+
         .column p {
-            margin: 0 0 12px;
-            color: #555555;
-        }
 
-        .column ul {
-            margin: 8px 0 0;
-            padding-left: 20px;
-        }
+            margin:
+                0 0 12px;
 
-        .column li {
-            margin-bottom: 5px;
             color: #555555;
         }
 
 
-        /*
-        ============================================================
-        NETWORK INFORMATION
-        ============================================================
-        */
+        /* ============================================================
+           NETWORK INFO
+           ============================================================ */
 
         .info {
-            margin: 32px 0;
-            border: 1px solid #d2dfe7;
+
+            margin:
+                32px 0;
+
+            border:
+                1px solid #d2dfe7;
+
             background: #f5f9fc;
         }
 
+
         .info-title {
-            padding: 9px 12px;
+
+            padding:
+                9px 12px;
+
             background: #e5f0f6;
-            border-bottom: 1px solid #d2dfe7;
+
+            border-bottom:
+                1px solid #d2dfe7;
+
             color: #174f72;
+
             font-weight: bold;
+
             font-size: 14px;
         }
 
+
         .info-body {
+
             padding: 15px;
         }
 
 
-        /*
-        ============================================================
-        NETWORK STATISTICS
-        ============================================================
-        */
+        /* ============================================================
+           NETWORK STATS
+           ============================================================ */
 
         .stats {
+
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 1px solid #d5d5d5;
-            border-left: 1px solid #d5d5d5;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            border-top:
+                1px solid #d5d5d5;
+
+            border-left:
+                1px solid #d5d5d5;
+
             margin-top: 20px;
         }
 
+
         .stat {
+
             padding: 17px;
+
             background: #ffffff;
-            border-right: 1px solid #d5d5d5;
-            border-bottom: 1px solid #d5d5d5;
+
+            border-right:
+                1px solid #d5d5d5;
+
+            border-bottom:
+                1px solid #d5d5d5;
         }
 
+
         .stat-title {
+
             color: #888888;
+
             font-size: 11px;
+
             text-transform: uppercase;
         }
 
+
         .stat-value {
+
             margin-top: 4px;
+
             color: #174f72;
+
             font-size: 20px;
+
             font-weight: bold;
         }
 
 
-        /*
-        ============================================================
-        WHITEPAPER
-        ============================================================
-        */
+        /* ============================================================
+           WHITEPAPER
+           ============================================================ */
 
         .whitepaper {
-            padding: 32px 0;
-            border-bottom: 1px solid #dddddd;
+
+            padding:
+                32px 0;
+
+            border-bottom:
+                1px solid #dddddd;
         }
 
+
         .whitepaper h2 {
-            margin: 0 0 10px;
+
+            margin:
+                0 0 10px;
+
             color: #174f72;
+
             font-size: 25px;
+
             font-weight: normal;
         }
 
+
         .whitepaper p {
+
             max-width: 750px;
+
             color: #555555;
         }
 
 
-        /*
-        ============================================================
-        INFORMATION LINKS
-        ============================================================
-        */
+        /* ============================================================
+           DOWNLOAD
+           ============================================================ */
+
+        .download {
+
+            padding:
+                32px 0;
+
+            border-bottom:
+                1px solid #dddddd;
+        }
+
+
+        .download h2 {
+
+            margin:
+                0 0 10px;
+
+            color: #174f72;
+
+            font-size: 25px;
+
+            font-weight: normal;
+        }
+
+
+        .download p {
+
+            color: #555555;
+        }
+
+
+        /* ============================================================
+           COMMUNITY
+           ============================================================ */
 
         .links {
-            padding: 32px 0;
+
+            padding:
+                32px 0;
+
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px 50px;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                15px 50px;
         }
+
 
         .link-item {
+
             padding-bottom: 12px;
-            border-bottom: 1px solid #eeeeee;
+
+            border-bottom:
+                1px solid #eeeeee;
         }
 
+
         .link-item strong {
+
             display: block;
+
             margin-bottom: 3px;
+
             color: #174f72;
+
             font-size: 15px;
         }
 
+
         .link-item span {
+
             color: #777777;
+
             font-size: 13px;
         }
 
 
-        /*
-        ============================================================
-        FOOTER
-        ============================================================
-        */
+        /* ============================================================
+           DONATE OVERLAY
+           ============================================================ */
 
-        footer {
-            margin-top: 20px;
-            background: #f4f4f4;
-            border-top: 1px solid #d5d5d5;
-        }
+        .donate-overlay {
 
-        .footer-inner {
-            width: 960px;
-            max-width: calc(100% - 30px);
-            margin: 0 auto;
-            padding: 25px 0 30px;
-        }
+            display: none;
 
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
+            position: fixed;
+
+            z-index: 9999;
+
+            left: 0;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background:
+                rgba(0, 0, 0, 0.55);
+
             align-items: center;
+
+            justify-content: center;
         }
 
-        .footer-brand {
+
+        .donate-overlay.show {
+
+            display: flex;
+        }
+
+
+        /* ============================================================
+           DONATE MODAL
+           ============================================================ */
+
+        .donate-modal {
+
+            width: 560px;
+
+            max-width:
+                calc(100% - 30px);
+
+            max-height:
+                calc(100vh - 40px);
+
+            overflow-y: auto;
+
+            background: #ffffff;
+
+            border:
+                1px solid #777777;
+
+            box-shadow:
+                0 5px 30px
+                rgba(0, 0, 0, 0.35);
+
+            position: relative;
+
+            padding: 28px;
+
+            box-sizing: border-box;
+        }
+
+
+        /* ============================================================
+           CLOSE
+           ============================================================ */
+
+        .donate-close {
+
+            position: absolute;
+
+            top: 10px;
+
+            right: 15px;
+
+            border: 0;
+
+            background: transparent;
+
+            color: #777777;
+
+            font-size: 25px;
+
+            line-height: 1;
+
+            cursor: pointer;
+        }
+
+
+        .donate-close:hover {
+
+            color: #222222;
+        }
+
+
+        /* ============================================================
+           DONATE TITLE
+           ============================================================ */
+
+        .donate-modal h2 {
+
+            margin:
+                0 35px 8px 0;
+
             color: #174f72;
+
+            font-size: 27px;
+
+            font-weight: normal;
+        }
+
+
+        /* ============================================================
+           DONATE DESCRIPTION
+           ============================================================ */
+
+        .donate-description {
+
+            margin:
+                0 0 22px;
+
+            color: #555555;
+
+            font-size: 14px;
+
+            line-height: 1.55;
+        }
+
+
+        /* ============================================================
+           PAYMENT BOX
+           ============================================================ */
+
+        .donate-payment-box {
+
+            display: grid;
+
+            grid-template-columns:
+                175px 1fr;
+
+            gap: 22px;
+
+            padding: 20px;
+
+            background: #f5f6f7;
+
+            border:
+                1px solid #d8dce0;
+
+            box-sizing: border-box;
+        }
+
+
+        /* ============================================================
+           QR CODE
+           ============================================================ */
+
+        .donate-canvas {
+
+            width: 160px;
+
+            height: 160px;
+
+            padding: 6px;
+
+            box-sizing: border-box;
+
+            background: #ffffff;
+
+            border:
+                1px solid #d0d0d0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .donate-canvas img {
+
+            width: 148px;
+
+            height: 148px;
+
+            display: block;
+        }
+
+
+        /* ============================================================
+           PAYMENT INFORMATION
+           ============================================================ */
+
+        .donate-payment-info {
+
+            min-width: 0;
+        }
+
+
+        .donate-payment-info h3 {
+
+            margin:
+                0 0 3px;
+
+            color: #333333;
+
+            font-size: 17px;
+
             font-weight: bold;
         }
 
-        .footer-links a {
-            margin-left: 15px;
-            font-size: 12px;
+
+        .donate-network {
+
+            margin-bottom: 12px;
+
+            color: #777777;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
         }
 
-        .copyright {
-            margin-top: 18px;
-            color: #888888;
+
+        /* ============================================================
+           OPEN IN WALLET
+           ============================================================ */
+
+        .donate-wallet-button {
+
+            display: block;
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding:
+                11px 10px;
+
+            margin-bottom: 10px;
+
+            background: #f7931a;
+
+            border:
+                1px solid #df810c;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        .donate-wallet-button:hover {
+
+            background: #e88610;
+
+            color: #ffffff;
+
+            text-decoration: none;
+        }
+
+
+        /* ============================================================
+           BITCOIN ADDRESS
+           ============================================================ */
+
+        .donate-address {
+
+            width: 100%;
+
+            min-height: 55px;
+
+            padding: 10px;
+
+            box-sizing: border-box;
+
+            background: #ffffff;
+
+            border:
+                1px solid #cfd3d6;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        .donate-address code {
+
+            color: #333333;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            word-break: break-all;
+        }
+
+
+        /* ============================================================
+           COPY ADDRESS
+           ============================================================ */
+
+        .donate-copy-button {
+
+            width: 100%;
+
+            margin-top: 8px;
+
+            padding:
+                9px 10px;
+
+            background: #ffffff;
+
+            border:
+                1px solid #c5c9cc;
+
+            color: #444444;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 13px;
+
+            cursor: pointer;
+        }
+
+
+        .donate-copy-button:hover {
+
+            background: #eeeeee;
+        }
+
+
+        /* ============================================================
+           COPY MESSAGE
+           ============================================================ */
+
+        .donate-copy-message {
+
+            min-height: 16px;
+
+            margin-top: 6px;
+
+            color: #477047;
+
             font-size: 11px;
         }
 
 
-        /*
-        ============================================================
-        MOBILE
-        ============================================================
-        */
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+
+        footer {
+
+            margin-top: 20px;
+
+            background: #f4f4f4;
+
+            border-top:
+                1px solid #d5d5d5;
+        }
+
+
+        .footer-inner {
+
+            width: 960px;
+
+            max-width:
+                calc(100% - 30px);
+
+            margin: 0 auto;
+
+            padding:
+                25px 0 30px;
+        }
+
+
+        .footer-top {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+        }
+
+
+        .footer-brand {
+
+            color: #174f72;
+
+            font-weight: bold;
+        }
+
+
+        .footer-links a {
+
+            margin-left: 15px;
+
+            font-size: 12px;
+        }
+
+
+        .copyright {
+
+            margin-top: 18px;
+
+            color: #888888;
+
+            font-size: 11px;
+        }
+
+
+        /* ============================================================
+           MOBILE
+           ============================================================ */
 
         @media (max-width: 760px) {
 
             .top-inner {
-                padding: 12px 0;
+
+                padding:
+                    12px 0;
+
                 flex-direction: column;
+
                 align-items: flex-start;
+
                 gap: 12px;
             }
 
+
             .nav {
+
                 flex-wrap: wrap;
-                justify-content: flex-start;
+
+                justify-content:
+                    flex-start;
             }
 
+
             .hero {
+
                 padding-top: 32px;
             }
 
+
             .hero h1 {
+
                 font-size: 32px;
             }
 
+
             .columns {
+
                 grid-template-columns: 1fr;
+
                 gap: 25px;
             }
 
+
             .stats {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
+
             .links {
+
                 grid-template-columns: 1fr;
             }
 
+
+            .donate-modal {
+
+                padding: 20px;
+            }
+
+
+            .donate-payment-box {
+
+                grid-template-columns: 1fr;
+
+                justify-items: center;
+            }
+
+
+            .donate-payment-info {
+
+                width: 100%;
+            }
+
+
             .footer-top {
+
                 flex-direction: column;
+
                 align-items: flex-start;
+
                 gap: 12px;
             }
 
+
             .footer-links a {
+
                 margin-left: 0;
+
                 margin-right: 15px;
             }
 
@@ -470,10 +1151,13 @@
         @media (max-width: 450px) {
 
             .stats {
+
                 grid-template-columns: 1fr;
             }
 
+
             .button {
+
                 margin-bottom: 7px;
             }
 
@@ -495,6 +1179,9 @@
 
     <div class="top-inner">
 
+
+        <!-- LOGO -->
+
         <a
             href="index.html"
             class="brand"
@@ -512,6 +1199,8 @@
 
         </a>
 
+
+        <!-- NAVIGATION -->
 
         <nav class="nav">
 
@@ -535,6 +1224,17 @@
                 Community
             </a>
 
+
+            <!-- DONATE -->
+
+            <a
+                href="#"
+                class="donate-top-button"
+                onclick="openDonate(event)"
+            >
+                Donate To NienCoin
+            </a>
+
         </nav>
 
     </div>
@@ -549,31 +1249,335 @@
 <main class="container">
 
 
-<section
-    class="hero"
-    id="about"
->
+    <!-- ========================================================
+         HERO
+         ======================================================== -->
 
-    <h1>
-        NienCoin
-    </h1>
+    <section
+        class="hero"
+        id="about"
+    >
 
-    <h2>
-        A peer-to-peer digital currency
-    </h2>
+        <h1>
+            NienCoin
+        </h1>
 
-    <p>
-        NienCoin is an independent Proof-of-Work
-        Layer-1 blockchain designed for decentralized
-        digital value transfer.
-    </p>
 
-    <p>
-        No central bank. No single server.
-        A blockchain maintained by its participants.
-    </p>
+        <h2>
+            A peer-to-peer digital currency
+        </h2>
 
-    <div class="buttons">
+
+        <p>
+            NienCoin is an independent Proof-of-Work
+            Layer-1 blockchain designed for decentralized
+            digital value transfer.
+        </p>
+
+
+        <p>
+            No central bank. No single server.
+            A blockchain maintained by its participants.
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="whitepaper.html"
+                class="button"
+            >
+                Read the Whitepaper
+            </a>
+
+
+            <a
+                href="#download"
+                class="button secondary"
+            >
+                Download
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         THREE COLUMNS
+         ======================================================== -->
+
+    <section class="columns">
+
+
+        <div class="column">
+
+            <h3>
+                What is NienCoin?
+            </h3>
+
+
+            <p>
+                NienCoin is an independent digital currency
+                operating on its own blockchain.
+            </p>
+
+
+            <p>
+                Transactions are recorded on a public
+                Proof-of-Work blockchain.
+            </p>
+
+
+            <a href="whitepaper.html">
+                Learn more →
+            </a>
+
+        </div>
+
+
+        <div class="column">
+
+            <h3>
+                How does it work?
+            </h3>
+
+
+            <p>
+                Miners use computational work to produce
+                blocks. Nodes verify those blocks and
+                maintain the blockchain.
+            </p>
+
+
+            <p>
+                Participants communicate through a
+                peer-to-peer network.
+            </p>
+
+
+            <a href="whitepaper.html">
+                Learn about mining →
+            </a>
+
+        </div>
+
+
+        <div class="column">
+
+            <h3>
+                Why NienCoin?
+            </h3>
+
+
+            <p>
+                NienCoin is designed around simplicity,
+                limited supply, open verification and
+                Proof-of-Work security.
+            </p>
+
+
+            <p>
+                Anyone with compatible software can
+                participate in the network.
+            </p>
+
+
+            <a href="whitepaper.html">
+                Design goals →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         NETWORK
+         ======================================================== -->
+
+    <section id="network">
+
+        <div class="info">
+
+
+            <div class="info-title">
+                NienCoin Network
+            </div>
+
+
+            <div class="info-body">
+
+                <p>
+                    The NienCoin network consists of
+                    independent nodes, miners and users
+                    communicating through a peer-to-peer
+                    network.
+                </p>
+
+
+                <div class="stats">
+
+
+                    <div class="stat">
+
+                        <div class="stat-title">
+                            Currency
+                        </div>
+
+                        <div class="stat-value">
+                            NEC
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-title">
+                            Maximum Supply
+                        </div>
+
+                        <div class="stat-value">
+                            20M NEC
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-title">
+                            Block Time
+                        </div>
+
+                        <div class="stat-value">
+                            5 min
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <div class="stat-title">
+                            Consensus
+                        </div>
+
+                        <div class="stat-value">
+                            PoW
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         MONETARY SYSTEM
+         ======================================================== -->
+
+    <section class="columns">
+
+
+        <div class="column">
+
+            <h3>
+                Limited Supply
+            </h3>
+
+
+            <p>
+                The maximum supply of NienCoin is
+                20,000,000 NEC.
+            </p>
+
+
+            <p>
+                New coins are introduced through
+                valid Proof-of-Work block rewards.
+            </p>
+
+        </div>
+
+
+        <div class="column">
+
+            <h3>
+                Mining
+            </h3>
+
+
+            <p>
+                Miners compete to produce valid blocks
+                and receive block rewards according to
+                the consensus rules.
+            </p>
+
+
+            <p>
+                Mining also contributes computational
+                security to the network.
+            </p>
+
+        </div>
+
+
+        <div class="column">
+
+            <h3>
+                Smallest Unit
+            </h3>
+
+
+            <p>
+                NienCoin is divisible into very small
+                units.
+            </p>
+
+
+            <p>
+
+                <strong>
+                    1 NEC = 100,000,000 Huu Khang
+                </strong>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================================
+         WHITEPAPER
+         ======================================================== -->
+
+    <section
+        class="whitepaper"
+        id="whitepaper"
+    >
+
+        <h2>
+            NienCoin Whitepaper
+        </h2>
+
+
+        <p>
+            The NienCoin whitepaper describes the
+            network architecture, Proof-of-Work
+            consensus, monetary system, blockchain
+            structure, security model and development
+            roadmap.
+        </p>
+
 
         <a
             href="whitepaper.html"
@@ -582,367 +1586,257 @@
             Read the Whitepaper
         </a>
 
-        <a
-            href="#download"
-            class="button secondary"
-        >
+    </section>
+
+
+    <!-- ========================================================
+         DOWNLOAD
+         ======================================================== -->
+
+    <section
+        class="download"
+        id="download"
+    >
+
+        <h2>
             Download
-        </a>
+        </h2>
 
-    </div>
-
-</section>
-
-
-<section class="columns">
-
-    <div class="column">
-
-        <h3>
-            What is NienCoin?
-        </h3>
 
         <p>
-            NienCoin is an independent digital currency
-            operating on its own blockchain.
+            NienCoin Core is currently under development.
         </p>
+
 
         <p>
-            Transactions are recorded on a public
-            Proof-of-Work blockchain.
+            Official downloads will be available soon.
         </p>
 
-        <a href="whitepaper.html">
-            Learn more →
-        </a>
-
-    </div>
-
-
-    <div class="column">
-
-        <h3>
-            How does it work?
-        </h3>
-
-        <p>
-            Miners use computational work to produce
-            blocks. Nodes verify those blocks and
-            maintain the blockchain.
-        </p>
-
-        <p>
-            Participants communicate through a
-            peer-to-peer network.
-        </p>
-
-        <a href="whitepaper.html#pow">
-            Learn about mining →
-        </a>
-
-    </div>
-
-
-    <div class="column">
-
-        <h3>
-            Why NienCoin?
-        </h3>
-
-        <p>
-            NienCoin is designed around simplicity,
-            limited supply, open verification and
-            Proof-of-Work security.
-        </p>
-
-        <p>
-            Anyone with compatible software can
-            participate in the network.
-        </p>
-
-        <a href="whitepaper.html#vision">
-            Design goals →
-        </a>
-
-    </div>
-
-</section>
-
-
-<section id="network">
-
-    <div class="info">
-
-        <div class="info-title">
-            NienCoin Network
-        </div>
-
-        <div class="info-body">
-
-            <p>
-                The NienCoin network consists of
-                independent nodes, miners and users
-                communicating through a peer-to-peer
-                network.
-            </p>
-
-            <div class="stats">
-
-                <div class="stat">
-
-                    <div class="stat-title">
-                        Currency
-                    </div>
-
-                    <div class="stat-value">
-                        NEC
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-title">
-                        Maximum Supply
-                    </div>
-
-                    <div class="stat-value">
-                        20M NEC
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-title">
-                        Block Time
-                    </div>
-
-                    <div class="stat-value">
-                        5 min
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-title">
-                        Consensus
-                    </div>
-
-                    <div class="stat-value">
-                        PoW
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="columns">
-
-    <div class="column">
-
-        <h3>
-            Limited Supply
-        </h3>
-
-        <p>
-            The maximum supply of NienCoin is
-            20,000,000 NEC.
-        </p>
-
-        <p>
-            New coins are introduced through
-            valid Proof-of-Work block rewards.
-        </p>
-
-    </div>
-
-
-    <div class="column">
-
-        <h3>
-            Mining
-        </h3>
-
-        <p>
-            Miners compete to produce valid blocks
-            and receive block rewards according to
-            the consensus rules.
-        </p>
-
-        <p>
-            Mining also contributes computational
-            security to the network.
-        </p>
-
-    </div>
-
-
-    <div class="column">
-
-        <h3>
-            Huu Khang
-        </h3>
-
-        <p>
-            NienCoin is divisible into very small
-            units.
-        </p>
 
         <p>
 
             <strong>
-                1 NEC = 100,000,000 Huu Khang
+                Coming soon.
             </strong>
 
         </p>
 
-    </div>
-
-</section>
+    </section>
 
 
-<section
-    class="whitepaper"
-    id="whitepaper"
->
+    <!-- ========================================================
+         COMMUNITY
+         ======================================================== -->
 
-    <h2>
-        NienCoin Whitepaper
-    </h2>
-
-    <p>
-        The NienCoin whitepaper describes the
-        network architecture, Proof-of-Work
-        consensus, monetary system, blockchain
-        structure, security model and development
-        roadmap.
-    </p>
-
-    <a
-        href="whitepaper.html"
-        class="button"
+    <section
+        class="links"
+        id="community"
     >
-        Read the Whitepaper
-    </a>
-
-</section>
 
 
-<section
-    class="whitepaper"
-    id="download"
->
+        <div class="link-item">
 
-    <h2>
-        Download
-    </h2>
+            <strong>
+                NienCoin Explorer
+            </strong>
 
-    <p>
-        NienCoin Core is currently under development.
-    </p>
+            <span>
+                Explore blocks and transactions
+                on the NienCoin network.
+            </span>
 
-    <p>
-        Official downloads will be available soon.
-    </p>
-
-    <p>
-
-        <strong>
-            Coming soon.
-        </strong>
-
-    </p>
-
-</section>
+        </div>
 
 
-<section
-    class="links"
-    id="community"
->
+        <div class="link-item">
 
-    <div class="link-item">
+            <strong>
+                NienCoin Core
+            </strong>
 
-        <strong>
-            NienCoin Explorer
-        </strong>
+            <span>
+                Run a NienCoin node and verify
+                blockchain data independently.
+            </span>
 
-        <span>
-            Explore blocks and transactions
-            on the NienCoin network.
-        </span>
-
-    </div>
+        </div>
 
 
-    <div class="link-item">
+        <div class="link-item">
 
-        <strong>
-            NienCoin Core
-        </strong>
+            <strong>
+                Mining
+            </strong>
 
-        <span>
-            Run a NienCoin node and verify
-            blockchain data independently.
-        </span>
+            <span>
+                Learn how Proof-of-Work mining
+                contributes to the network.
+            </span>
 
-    </div>
-
-
-    <div class="link-item">
-
-        <strong>
-            Mining
-        </strong>
-
-        <span>
-            Learn how Proof-of-Work mining
-            contributes to the network.
-        </span>
-
-    </div>
+        </div>
 
 
-    <div class="link-item">
+        <div class="link-item">
 
-        <strong>
-            Documentation
-        </strong>
+            <strong>
+                Documentation
+            </strong>
 
-        <span>
-            Technical documentation for users
-            and developers.
-        </span>
+            <span>
+                Technical documentation for users
+                and developers.
+            </span>
 
-    </div>
+        </div>
 
-</section>
+
+    </section>
 
 
 </main>
 
 
+<!-- ============================================================
+     DONATE MODAL
+     ============================================================ -->
+
+<div
+    id="donate-overlay"
+    class="donate-overlay"
+    onclick="closeDonateOutside(event)"
+>
+
+
+    <div
+        class="donate-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="donate-title"
+    >
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="donate-close"
+            onclick="closeDonate()"
+            aria-label="Close"
+        >
+            ×
+        </button>
+
+
+        <!-- TITLE -->
+
+        <h2 id="donate-title">
+            Support NienCoin
+        </h2>
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="donate-description">
+
+            Scan the QR code or open your Bitcoin wallet.
+            You can donate using the QR code or the Bitcoin
+            address provided below.
+
+        </p>
+
+
+        <!-- ====================================================
+             BITCOIN PAYMENT BOX
+             ==================================================== -->
+
+        <div class="donate-payment-box">
+
+
+            <!-- QR CODE -->
+
+            <div
+                id="donate-canvas"
+                class="donate-canvas"
+            ></div>
+
+
+            <!-- PAYMENT INFORMATION -->
+
+            <div class="donate-payment-info">
+
+
+                <h3>
+                    Send with Bitcoin
+                </h3>
+
+
+                <div class="donate-network">
+                    Bitcoin only · On-chain
+                </div>
+
+
+                <!-- OPEN IN WALLET -->
+
+                <a
+                    class="donate-wallet-button"
+                    href="bitcoin:bc1qvv7dzdrx4khfxhnl3kl9hexuyskvgt9c2ym00u"
+                >
+                    Open in Wallet
+                </a>
+
+
+                <!-- ADDRESS -->
+
+                <div class="donate-address">
+
+                    <code>
+                        bc1qvv7dzdrx4khfxhnl3kl9hexuyskvgt9c2ym00u
+                    </code>
+
+                </div>
+
+
+                <!-- COPY -->
+
+                <button
+                    class="donate-copy-button"
+                    onclick="copyDonateAddress()"
+                >
+                    Copy Address
+                </button>
+
+
+                <div
+                    id="donate-copy-message"
+                    class="donate-copy-message"
+                ></div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
 <footer>
+
 
     <div class="footer-inner">
 
+
         <div class="footer-top">
+
 
             <div class="footer-brand">
                 NienCoin
             </div>
+
 
             <div class="footer-links">
 
@@ -958,9 +1852,18 @@
                     Network
                 </a>
 
+                <a
+                    href="#"
+                    onclick="openDonate(event)"
+                >
+                    Donate
+                </a>
+
             </div>
 
+
         </div>
+
 
         <div class="copyright">
 
@@ -973,9 +1876,208 @@
 
         </div>
 
+
     </div>
 
+
 </footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+
+<script>
+
+
+    /* ============================================================
+       BITCOIN DONATION ADDRESS
+       ============================================================ */
+
+    const BITCOIN_DONATE_ADDRESS =
+        "bc1qvv7dzdrx4khfxhnl3kl9hexuyskvgt9c2ym00u";
+
+
+    /* ============================================================
+       OPEN DONATE MODAL
+       ============================================================ */
+
+    function openDonate(event) {
+
+        if (event) {
+            event.preventDefault();
+        }
+
+
+        const overlay =
+            document.getElementById(
+                "donate-overlay"
+            );
+
+
+        overlay.classList.add("show");
+
+
+        const qr =
+            document.getElementById(
+                "donate-canvas"
+            );
+
+
+        /*
+         * Generate QR only once.
+         */
+
+        if (
+            qr.children.length === 0
+        ) {
+
+            new QRCode(
+
+                qr,
+
+                {
+
+                    text:
+                        "bitcoin:" +
+                        BITCOIN_DONATE_ADDRESS,
+
+                    width: 148,
+
+                    height: 148,
+
+                    correctLevel:
+                        QRCode.CorrectLevel.M
+
+                }
+
+            );
+
+        }
+
+    }
+
+
+    /* ============================================================
+       CLOSE DONATE MODAL
+       ============================================================ */
+
+    function closeDonate() {
+
+        document
+            .getElementById(
+                "donate-overlay"
+            )
+            .classList.remove(
+                "show"
+            );
+
+    }
+
+
+    /* ============================================================
+       CLOSE BY CLICKING OUTSIDE
+       ============================================================ */
+
+    function closeDonateOutside(event) {
+
+        if (
+            event.target.id ===
+            "donate-overlay"
+        ) {
+
+            closeDonate();
+
+        }
+
+    }
+
+
+    /* ============================================================
+       COPY BITCOIN ADDRESS
+       ============================================================ */
+
+    function copyDonateAddress() {
+
+        navigator.clipboard
+            .writeText(
+                BITCOIN_DONATE_ADDRESS
+            )
+
+            .then(
+                function () {
+
+                    const message =
+                        document.getElementById(
+                            "donate-copy-message"
+                        );
+
+
+                    message.textContent =
+                        "Bitcoin address copied.";
+
+
+                    setTimeout(
+
+                        function () {
+
+                            message.textContent =
+                                "";
+
+                        },
+
+                        2500
+
+                    );
+
+                }
+            )
+
+            .catch(
+
+                function () {
+
+                    const message =
+                        document.getElementById(
+                            "donate-copy-message"
+                        );
+
+
+                    message.textContent =
+                        "Unable to copy automatically. Please copy the address manually.";
+
+                }
+
+            );
+
+    }
+
+
+    /* ============================================================
+       ESC KEY
+       ============================================================ */
+
+    document.addEventListener(
+
+        "keydown",
+
+        function (event) {
+
+            if (
+                event.key ===
+                "Escape"
+            ) {
+
+                closeDonate();
+
+            }
+
+        }
+
+    );
+
+
+</script>
 
 
 </body>
