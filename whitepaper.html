@@ -1,0 +1,2784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="NienCoin Whitepaper - Independent Proof-of-Work Layer-1 Blockchain">
+
+<title>NienCoin Whitepaper</title>
+
+<style>
+
+/* =========================================================
+   NIENCOIN WHITEPAPER
+   Classic / Early Crypto Documentation Style
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #263f54;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    background: #063b63;
+    border-bottom: 4px solid #1684bd;
+}
+
+.header {
+    max-width: 1000px;
+    margin: auto;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo:hover {
+    text-decoration: none;
+}
+
+.header-link {
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   DOCUMENT
+   ========================================================= */
+
+.wrapper {
+    max-width: 1000px;
+    margin: auto;
+    padding: 55px 20px 90px;
+}
+
+
+/* =========================================================
+   COVER
+   ========================================================= */
+
+.cover {
+    padding: 55px 45px;
+
+    background: #f5f9fc;
+
+    border: 1px solid #d5e1e9;
+
+    margin-bottom: 45px;
+}
+
+.cover h1 {
+    margin: 0;
+
+    color: #063b63;
+
+    font-size: 48px;
+
+    line-height: 1.15;
+}
+
+.cover h2 {
+    border: 0;
+
+    margin: 12px 0 30px;
+
+    color: #1679ad;
+
+    font-size: 25px;
+}
+
+.cover p {
+    margin: 8px 0;
+
+    color: #607789;
+}
+
+.cover .author {
+    margin-top: 30px;
+
+    color: #263f54;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS
+   ========================================================= */
+
+.toc {
+    border: 1px solid #d5e1e9;
+
+    padding: 28px;
+
+    margin-bottom: 55px;
+
+    background: #ffffff;
+}
+
+.toc h2 {
+    margin-top: 0;
+}
+
+.toc ol {
+    margin-bottom: 0;
+}
+
+.toc a {
+    color: #075b91;
+    text-decoration: none;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    color: #063b63;
+}
+
+h2 {
+    margin-top: 60px;
+
+    padding-bottom: 9px;
+
+    border-bottom: 1px solid #d8e3ea;
+
+    font-size: 29px;
+}
+
+h3 {
+    margin-top: 38px;
+
+    font-size: 21px;
+}
+
+h4 {
+    margin-top: 25px;
+
+    font-size: 17px;
+}
+
+p {
+    color: #526b7d;
+}
+
+li {
+    color: #526b7d;
+}
+
+
+/* =========================================================
+   SPECIAL BOXES
+   ========================================================= */
+
+.note {
+    margin: 25px 0;
+
+    padding: 18px 22px;
+
+    background: #f3f8fb;
+
+    border-left: 4px solid #1684bd;
+}
+
+.note strong {
+    color: #063b63;
+}
+
+.warning {
+    margin: 25px 0;
+
+    padding: 18px 22px;
+
+    background: #fffaf0;
+
+    border-left: 4px solid #c39a35;
+}
+
+.warning strong {
+    color: #725a19;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.table-wrap {
+    width: 100%;
+
+    overflow-x: auto;
+
+    margin: 25px 0;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th {
+    padding: 13px;
+
+    text-align: left;
+
+    background: #063b63;
+
+    color: #ffffff;
+}
+
+td {
+    padding: 13px;
+
+    border: 1px solid #d8e2e8;
+
+    color: #526b7d;
+}
+
+tr:nth-child(even) td {
+    background: #f7fafc;
+}
+
+
+/* =========================================================
+   CODE
+   ========================================================= */
+
+pre {
+    overflow-x: auto;
+
+    padding: 20px;
+
+    background: #f2f5f7;
+
+    border: 1px solid #d5dfe5;
+
+    color: #263f54;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+code {
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    background: #eef3f6;
+
+    padding: 2px 5px;
+
+    color: #075b91;
+}
+
+
+/* =========================================================
+   FORMULA
+   ========================================================= */
+
+.formula {
+    padding: 20px;
+
+    margin: 25px 0;
+
+    text-align: center;
+
+    background: #f5f8fa;
+
+    border: 1px solid #d7e1e7;
+
+    color: #063b63;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #063b63;
+
+    color: #b9d0df;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+footer strong {
+    color: #ffffff;
+}
+
+.back {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 10px 18px;
+
+    background: #0875ad;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 3px;
+}
+
+.back:hover {
+    background: #075f8d;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .wrapper {
+        padding-top: 30px;
+    }
+
+    .cover {
+        padding: 30px 22px;
+    }
+
+    .cover h1 {
+        font-size: 36px;
+    }
+
+    .cover h2 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header>
+
+    <div class="header">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            NienCoin
+        </a>
+
+        <a
+            href="index.html"
+            class="header-link"
+        >
+            Back to NienCoin
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="wrapper">
+
+
+<!-- =====================================================
+     COVER
+     ===================================================== -->
+
+<div class="cover">
+
+    <h1>
+        NienCoin
+    </h1>
+
+    <h2>
+        An Independent Proof-of-Work
+        Layer-1 Blockchain
+    </h2>
+
+    <p>
+        <strong>Whitepaper Version 1.0</strong>
+    </p>
+
+    <p>
+        Network: NienCoin (NEC)
+    </p>
+
+    <p>
+        Consensus: Proof-of-Work
+    </p>
+
+    <p>
+        Maximum Supply: 20,000,000 NEC
+    </p>
+
+    <p>
+        Target Block Time: 5 minutes
+    </p>
+
+    <p>
+        Initial Block Reward: 10 NEC
+    </p>
+
+    <p class="author">
+        Written by Hồ Hữu Khang
+    </p>
+
+    <p>
+        August 23, 2026
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     ABSTRACT
+     ===================================================== -->
+
+<h2 id="abstract">
+    Abstract
+</h2>
+
+<p>
+    NienCoin (NEC) is an independent Layer-1 blockchain
+    designed as a peer-to-peer digital currency network.
+    The network uses Proof-of-Work as its consensus
+    mechanism and allows participants to operate nodes,
+    verify transactions, and participate in block
+    production.
+</p>
+
+<p>
+    NienCoin is designed around a simple monetary model:
+    a maximum supply of 20,000,000 NEC, with new NEC
+    entering circulation through valid block production
+    according to the network's consensus rules.
+</p>
+
+<p>
+    The smallest denomination of the currency is called
+    Huu Khang. One NEC is divided into 100,000,000 Huu
+    Khang.
+</p>
+
+<p>
+    The project aims to provide a blockchain whose
+    fundamental rules can be inspected, implemented,
+    and independently verified by participants.
+</p>
+
+<div class="note">
+
+    <strong>
+        Design principle:
+    </strong>
+
+    The blockchain should be verifiable by its
+    participants rather than relying on a single
+    trusted operator.
+
+</div>
+
+
+<!-- =====================================================
+     TABLE OF CONTENTS
+     ===================================================== -->
+
+<div class="toc">
+
+<h2>
+    Table of Contents
+</h2>
+
+<ol>
+
+<li><a href="#abstract">Abstract</a></li>
+
+<li><a href="#introduction">Introduction</a></li>
+
+<li><a href="#vision">Vision and Design Goals</a></li>
+
+<li><a href="#network">The NienCoin Network</a></li>
+
+<li><a href="#architecture">Blockchain Architecture</a></li>
+
+<li><a href="#blocks">Blocks</a></li>
+
+<li><a href="#transactions">Transactions</a></li>
+
+<li><a href="#pow">Proof-of-Work</a></li>
+
+<li><a href="#mining">Mining</a></li>
+
+<li><a href="#difficulty">Difficulty Adjustment</a></li>
+
+<li><a href="#consensus">Consensus</a></li>
+
+<li><a href="#nodes">Nodes</a></li>
+
+<li><a href="#p2p">Peer-to-Peer Network</a></li>
+
+<li><a href="#wallets">Wallets and Addresses</a></li>
+
+<li><a href="#monetary">Monetary System</a></li>
+
+<li><a href="#supply">Supply Distribution</a></li>
+
+<li><a href="#units">Huu Khang Unit</a></li>
+
+<li><a href="#genesis">Genesis Block</a></li>
+
+<li><a href="#security">Security Model</a></li>
+
+<li><a href="#decentralization">Decentralization</a></li>
+
+<li><a href="#economics">Economic Model</a></li>
+
+<li><a href="#fees">Transaction Fees</a></li>
+
+<li><a href="#validation">Transaction Validation</a></li>
+
+<li><a href="#forks">Forks and Chain Selection</a></li>
+
+<li><a href="#reorganizations">Chain Reorganizations</a></li>
+
+<li><a href="#confirmations">Confirmations</a></li>
+
+<li><a href="#double-spending">Double Spending</a></li>
+
+<li><a href="#attacks">Security Threats</a></li>
+
+<li><a href="#privacy">Privacy</a></li>
+
+<li><a href="#software">NienCoin Core Software</a></li>
+
+<li><a href="#open-source">Open Development</a></li>
+
+<li><a href="#governance">Governance</a></li>
+
+<li><a href="#roadmap">Development Roadmap</a></li>
+
+<li><a href="#limitations">Limitations</a></li>
+
+<li><a href="#risks">Risks</a></li>
+
+<li><a href="#future">Future Development</a></li>
+
+<li><a href="#conclusion">Conclusion</a></li>
+
+<li><a href="#author">Author</a></li>
+
+</ol>
+
+</div>
+
+
+<!-- =====================================================
+     1. INTRODUCTION
+     ===================================================== -->
+
+<h2 id="introduction">
+    1. Introduction
+</h2>
+
+<p>
+    Digital currencies require a reliable method for
+    recording ownership and transferring value without
+    depending entirely on a centralized database.
+</p>
+
+<p>
+    A blockchain approaches this problem by maintaining
+    a shared sequence of blocks. Participants maintain
+    copies of the network's state and independently
+    validate new information according to common rules.
+</p>
+
+<p>
+    NienCoin applies this general model to an independent
+    blockchain network whose native currency is NEC.
+</p>
+
+<p>
+    The network is intended to allow a participant to
+    install and operate node software, communicate with
+    other nodes, receive transactions, validate blocks,
+    and participate in mining.
+</p>
+
+<p>
+    The objective is not to make participants trust a
+    particular server. Instead, the software rules should
+    determine whether blocks and transactions are valid.
+</p>
+
+
+<h3>
+    1.1 Problem Statement
+</h3>
+
+<p>
+    A centralized digital currency can maintain a single
+    authoritative database, but users must trust the
+    operator of that database.
+</p>
+
+<p>
+    An independent blockchain attempts to distribute
+    responsibility for maintaining the ledger among
+    multiple participants.
+</p>
+
+<p>
+    The challenge is to establish a common transaction
+    history when participants may not trust one another.
+</p>
+
+
+<h3>
+    1.2 Proposed Approach
+</h3>
+
+<p>
+    NienCoin uses Proof-of-Work to make block production
+    computationally costly while keeping verification
+    comparatively inexpensive.
+</p>
+
+<p>
+    Transactions are propagated through a peer-to-peer
+    network. Miners construct candidate blocks and attempt
+    to satisfy the current Proof-of-Work target.
+</p>
+
+<p>
+    Nodes verify received blocks before accepting them
+    as part of their local view of the blockchain.
+</p>
+
+
+<!-- =====================================================
+     2. VISION
+     ===================================================== -->
+
+<h2 id="vision">
+    2. Vision and Design Goals
+</h2>
+
+<p>
+    NienCoin is guided by several design goals.
+</p>
+
+<h3>
+    2.1 Independent Blockchain
+</h3>
+
+<p>
+    NienCoin is intended to operate as its own Layer-1
+    blockchain rather than as a token dependent on another
+    chain.
+</p>
+
+<h3>
+    2.2 Verifiable Rules
+</h3>
+
+<p>
+    Consensus rules should be explicit enough that
+    independent node implementations can determine
+    whether a block is valid.
+</p>
+
+<h3>
+    2.3 Mining-Based Issuance
+</h3>
+
+<p>
+    New NEC is intended to enter circulation through
+    block rewards generated according to consensus rules.
+</p>
+
+<h3>
+    2.4 Peer-to-Peer Participation
+</h3>
+
+<p>
+    The network should not require every participant to
+    communicate with one central server.
+</p>
+
+<h3>
+    2.5 Limited Supply
+</h3>
+
+<p>
+    The maximum monetary supply is defined as
+    20,000,000 NEC.
+</p>
+
+<h3>
+    2.6 Simplicity
+</h3>
+
+<p>
+    The core protocol should avoid unnecessary complexity
+    where a simpler mechanism can provide the required
+    functionality.
+</p>
+
+
+<!-- =====================================================
+     3. NETWORK
+     ===================================================== -->
+
+<h2 id="network">
+    3. The NienCoin Network
+</h2>
+
+<p>
+    The NienCoin network consists of independent
+    participants running compatible software.
+</p>
+
+<p>
+    Participants may perform different roles. A node may
+    validate blockchain data. A wallet may create and sign
+    transactions. A miner may construct blocks and perform
+    Proof-of-Work.
+</p>
+
+<p>
+    These roles do not necessarily need to belong to
+    separate machines.
+</p>
+
+
+<h3>
+    3.1 Network Participants
+</h3>
+
+<ul>
+
+<li>Full nodes</li>
+
+<li>Mining nodes</li>
+
+<li>Wallet users</li>
+
+<li>Network peers</li>
+
+<li>Developers</li>
+
+</ul>
+
+
+<h3>
+    3.2 Network Data
+</h3>
+
+<p>
+    The principal types of data exchanged by participants
+    include transactions, blocks, and peer-discovery or
+    network-control information.
+</p>
+
+
+<!-- =====================================================
+     4. ARCHITECTURE
+     ===================================================== -->
+
+<h2 id="architecture">
+    4. Blockchain Architecture
+</h2>
+
+<p>
+    The blockchain is an ordered sequence of blocks.
+    Each block is associated with the block preceding it,
+    forming a linked history.
+</p>
+
+<p>
+    A simplified representation is:
+</p>
+
+<pre>
+Genesis Block
+     |
+     v
+Block 1
+     |
+     v
+Block 2
+     |
+     v
+Block 3
+     |
+     v
+...
+     |
+     v
+Current Tip
+</pre>
+
+<p>
+    Each block contains information allowing a node to
+    determine where the block belongs in the chain.
+</p>
+
+
+<h3>
+    4.1 Hash Linking
+</h3>
+
+<p>
+    A block can reference the hash of its predecessor.
+    Changing the contents of an earlier block therefore
+    changes the cryptographic relationship between that
+    block and subsequent blocks.
+</p>
+
+
+<h3>
+    4.2 Chain State
+</h3>
+
+<p>
+    The blockchain represents the accepted transaction
+    history and associated monetary state of the network.
+</p>
+
+
+<!-- =====================================================
+     5. BLOCKS
+     ===================================================== -->
+
+<h2 id="blocks">
+    5. Blocks
+</h2>
+
+<p>
+    A block is a container for transactions together with
+    metadata required by the consensus mechanism.
+</p>
+
+<p>
+    The exact binary serialization and field encoding are
+    implementation-level details and must be defined by
+    the NienCoin Core consensus specification before being
+    treated as immutable protocol requirements.
+</p>
+
+
+<h3>
+    5.1 Conceptual Block Fields
+</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>Version</td>
+<td>Identifies the block format or consensus version.</td>
+</tr>
+
+<tr>
+<td>Previous Block Hash</td>
+<td>Links the block to its predecessor.</td>
+</tr>
+
+<tr>
+<td>Timestamp</td>
+<td>Provides block timing information.</td>
+</tr>
+
+<tr>
+<td>Difficulty Target</td>
+<td>Represents the Proof-of-Work requirement.</td>
+</tr>
+
+<tr>
+<td>Nonce</td>
+<td>Provides a value miners can vary during hashing.</td>
+</tr>
+
+<tr>
+<td>Transactions</td>
+<td>Contains transactions included in the block.</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<h3>
+    5.2 Block Reward
+</h3>
+
+<p>
+    A valid block may contain a reward transaction
+    according to the monetary rules of the network.
+</p>
+
+<p>
+    The initial block reward defined for NienCoin is
+    10 NEC.
+</p>
+
+
+<!-- =====================================================
+     6. TRANSACTIONS
+     ===================================================== -->
+
+<h2 id="transactions">
+    6. Transactions
+</h2>
+
+<p>
+    Transactions represent transfers of NEC between
+    participants.
+</p>
+
+<p>
+    A valid transaction must satisfy the rules enforced
+    by NienCoin nodes.
+</p>
+
+
+<h3>
+    6.1 Transaction Lifecycle
+</h3>
+
+<ol>
+
+<li>
+    A wallet creates a transaction.
+</li>
+
+<li>
+    The transaction is authorized according to the
+    wallet's cryptographic credentials.
+</li>
+
+<li>
+    The transaction is transmitted to peers.
+</li>
+
+<li>
+    Nodes verify the transaction.
+</li>
+
+<li>
+    A miner may include the transaction in a block.
+</li>
+
+<li>
+    Nodes validate the resulting block.
+</li>
+
+<li>
+    The transaction becomes part of the accepted chain.
+</li>
+
+</ol>
+
+
+<h3>
+    6.2 Transaction Inputs and Outputs
+</h3>
+
+<p>
+    The exact transaction accounting model must follow
+    the implementation's consensus specification.
+</p>
+
+<p>
+    Whether the final NienCoin implementation uses a
+    UTXO model, account model, or another validated state
+    representation must be determined by the Core protocol
+    specification.
+</p>
+
+
+<div class="warning">
+
+    <strong>
+        Specification status:
+    </strong>
+
+    This document intentionally does not invent an exact
+    transaction serialization format that has not yet been
+    finalized in the NienCoin consensus implementation.
+
+</div>
+
+
+<!-- =====================================================
+     7. PROOF OF WORK
+     ===================================================== -->
+
+<h2 id="pow">
+    7. Proof-of-Work
+</h2>
+
+<p>
+    Proof-of-Work requires a miner to perform computation
+    before a candidate block can satisfy the network's
+    difficulty requirement.
+</p>
+
+<p>
+    Cryptographic hashing allows nodes to verify a
+    discovered result without repeating the entire search
+    performed by the miner.
+</p>
+
+
+<h3>
+    7.1 Mining Search
+</h3>
+
+<p>
+    A miner modifies a variable such as a nonce or other
+    permitted block data and repeatedly evaluates the
+    block's Proof-of-Work function.
+</p>
+
+<p>
+    The process continues until the resulting value
+    satisfies the current target.
+</p>
+
+
+<div class="formula">
+
+    Valid Block ⇔ ProofOfWork(Block Header) ≤ Target
+
+</div>
+
+
+<h3>
+    7.2 Verification
+</h3>
+
+<p>
+    A node receiving a candidate block calculates the
+    required Proof-of-Work result and compares it with
+    the target.
+</p>
+
+<p>
+    If the result does not satisfy the target, the block
+    must be rejected.
+</p>
+
+
+<h3>
+    7.3 Why Proof-of-Work Matters
+</h3>
+
+<p>
+    Proof-of-Work makes block production consume
+    computational resources. This gives the chain's
+    history an associated amount of accumulated work.
+</p>
+
+<p>
+    An attacker attempting to rewrite historical blocks
+    must reproduce the required work for the modified
+    history and compete against continuing honest
+    block production.
+</p>
+
+<p>
+    The security of this model depends on assumptions
+    about the distribution of mining power and the
+    implementation of the consensus rules.
+</p>
+
+
+<!-- =====================================================
+     8. MINING
+     ===================================================== -->
+
+<h2 id="mining">
+    8. Mining
+</h2>
+
+<p>
+    Mining is the process by which participants attempt
+    to create valid blocks.
+</p>
+
+
+<h3>
+    8.1 Mining Process
+</h3>
+
+<ol>
+
+<li>
+    Select valid pending transactions.
+</li>
+
+<li>
+    Construct a candidate block.
+</li>
+
+<li>
+    Include the required previous-block reference.
+</li>
+
+<li>
+    Construct the reward according to consensus rules.
+</li>
+
+<li>
+    Search for a valid Proof-of-Work.
+</li>
+
+<li>
+    Broadcast the discovered block.
+</li>
+
+<li>
+    Wait for network validation.
+</li>
+
+</ol>
+
+
+<h3>
+    8.2 Mining Reward
+</h3>
+
+<p>
+    The initial NienCoin block reward is 10 NEC.
+</p>
+
+<p>
+    The reward is not a guaranteed financial return.
+    Mining requires hardware, electricity, connectivity,
+    and functioning software.
+</p>
+
+
+<h3>
+    8.3 Mining and Supply
+</h3>
+
+<p>
+    Mining is the intended mechanism through which
+    newly issued NEC enters the circulating supply.
+</p>
+
+<p>
+    Once NEC has been issued and transferred, ownership
+    can subsequently change through voluntary transactions
+    between participants.
+</p>
+
+
+<!-- =====================================================
+     9. DIFFICULTY
+     ===================================================== -->
+
+<h2 id="difficulty">
+    9. Difficulty Adjustment
+</h2>
+
+<p>
+    A Proof-of-Work blockchain needs a mechanism for
+    maintaining a predictable approximate block interval
+    as total mining power changes.
+</p>
+
+<p>
+    NienCoin targets an average block interval of
+    approximately five minutes.
+</p>
+
+<p>
+    The exact retarget algorithm, adjustment interval,
+    limits, and timestamp rules are consensus parameters
+    and must match the implementation.
+</p>
+
+
+<div class="note">
+
+    <strong>
+        Consensus requirement:
+    </strong>
+
+    The final Core implementation must define one
+    deterministic difficulty calculation that every
+    compatible node can reproduce.
+
+</div>
+
+
+<!-- =====================================================
+     10. CONSENSUS
+     ===================================================== -->
+
+<h2 id="consensus">
+    10. Consensus
+</h2>
+
+<p>
+    Consensus is the collection of rules used by nodes
+    to determine whether blocks and transactions are
+    valid.
+</p>
+
+
+<h3>
+    10.1 Block Validity
+</h3>
+
+<p>
+    A node should reject a block that violates any
+    mandatory consensus rule.
+</p>
+
+<p>
+    Examples include an invalid Proof-of-Work,
+    invalid predecessor reference, invalid transaction
+    data, or an invalid reward.
+</p>
+
+
+<h3>
+    10.2 Determinism
+</h3>
+
+<p>
+    Consensus validation must be deterministic. Given
+    the same blockchain data and the same consensus
+    rules, compatible nodes should reach the same
+    validity result.
+</p>
+
+
+<h3>
+    10.3 Invalid Blocks
+</h3>
+
+<p>
+    Nodes must not accept an invalid block merely because
+    it was received from a trusted peer.
+</p>
+
+<p>
+    The block itself must satisfy the protocol.
+</p>
+
+
+<!-- =====================================================
+     11. NODES
+     ===================================================== -->
+
+<h2 id="nodes">
+    11. Nodes
+</h2>
+
+<p>
+    A node is software that participates in the NienCoin
+    network and maintains or validates blockchain data.
+</p>
+
+
+<h3>
+    11.1 Full Node Responsibilities
+</h3>
+
+<ul>
+
+<li>Receive network messages.</li>
+
+<li>Validate transactions.</li>
+
+<li>Validate blocks.</li>
+
+<li>Maintain blockchain state.</li>
+
+<li>Relay valid data.</li>
+
+<li>Reject invalid data.</li>
+
+<li>Maintain peer connections.</li>
+
+</ul>
+
+
+<h3>
+    11.2 Independent Verification
+</h3>
+
+<p>
+    Running an independent node allows a participant to
+    verify the network without relying entirely on another
+    participant's interpretation of the blockchain.
+</p>
+
+
+<!-- =====================================================
+     12. P2P
+     ===================================================== -->
+
+<h2 id="p2p">
+    12. Peer-to-Peer Network
+</h2>
+
+<p>
+    NienCoin is intended to use peer-to-peer communication
+    so that blockchain data can propagate between
+    participating nodes.
+</p>
+
+
+<h3>
+    12.1 Transaction Propagation
+</h3>
+
+<p>
+    When a node receives a valid transaction, it may
+    relay that transaction to connected peers.
+</p>
+
+
+<h3>
+    12.2 Block Propagation
+</h3>
+
+<p>
+    When a miner discovers a valid block, the block can
+    be broadcast to peers for validation and further
+    propagation.
+</p>
+
+
+<h3>
+    12.3 Peer Discovery
+</h3>
+
+<p>
+    The final implementation may use seed nodes,
+    manually configured peers, DNS discovery, or another
+    mechanism.
+</p>
+
+<p>
+    The exact mechanism is a software and network
+    specification detail rather than a monetary rule.
+</p>
+
+
+<!-- =====================================================
+     13. WALLETS
+     ===================================================== -->
+
+<h2 id="wallets">
+    13. Wallets and Addresses
+</h2>
+
+<p>
+    A wallet provides an interface for managing
+    cryptographic credentials and creating transactions.
+</p>
+
+
+<h3>
+    13.1 Ownership
+</h3>
+
+<p>
+    Control over the cryptographic credentials associated
+    with an address is the practical mechanism by which
+    a participant authorizes transfers.
+</p>
+
+
+<h3>
+    13.2 Address Generation
+</h3>
+
+<p>
+    NienCoin addresses must be generated according to
+    a deterministic protocol format defined by the
+    implementation.
+</p>
+
+<p>
+    The final address prefix, encoding and checksum
+    format should be documented once the Core protocol
+    is frozen.
+</p>
+
+
+<h3>
+    13.3 Wallet Security
+</h3>
+
+<p>
+    Users are responsible for protecting wallet
+    credentials and backups.
+</p>
+
+<p>
+    Loss of private credentials may result in loss of
+    control over associated funds.
+</p>
+
+
+<!-- =====================================================
+     14. MONETARY SYSTEM
+     ===================================================== -->
+
+<h2 id="monetary">
+    14. Monetary System
+</h2>
+
+<p>
+    NienCoin defines a fixed maximum supply of
+    20,000,000 NEC.
+</p>
+
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Parameter</th>
+<th>NienCoin Value</th>
+</tr>
+
+<tr>
+<td>Currency</td>
+<td>NEC</td>
+</tr>
+
+<tr>
+<td>Maximum Supply</td>
+<td>20,000,000 NEC</td>
+</tr>
+
+<tr>
+<td>Initial Block Reward</td>
+<td>10 NEC</td>
+</tr>
+
+<tr>
+<td>Target Block Time</td>
+<td>5 minutes</td>
+</tr>
+
+<tr>
+<td>Consensus</td>
+<td>Proof-of-Work</td>
+</tr>
+
+<tr>
+<td>Smallest Unit</td>
+<td>Huu Khang</td>
+</tr>
+
+<tr>
+<td>Units per NEC</td>
+<td>100,000,000</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<h3>
+    14.1 Monetary Limit
+</h3>
+
+<p>
+    The maximum supply establishes an upper boundary
+    for the number of whole NEC units that can exist
+    under the intended monetary rules.
+</p>
+
+
+<h3>
+    14.2 Issuance
+</h3>
+
+<p>
+    New NEC is intended to be issued through valid block
+    rewards.
+</p>
+
+
+<h3>
+    14.3 Supply Verification
+</h3>
+
+<p>
+    Nodes should be able to calculate the permitted
+    monetary issuance from the blockchain history and
+    consensus rules.
+</p>
+
+
+<!-- =====================================================
+     15. SUPPLY DISTRIBUTION
+     ===================================================== -->
+
+<h2 id="supply">
+    15. Supply Distribution
+</h2>
+
+<p>
+    NienCoin uses a mining-oriented distribution model.
+</p>
+
+<p>
+    The intended model does not depend on a hidden
+    allocation of the entire supply to a predetermined
+    owner.
+</p>
+
+<p>
+    Participants can obtain NEC by contributing valid
+    Proof-of-Work mining or by receiving NEC from
+    another participant.
+</p>
+
+
+<h3>
+    15.1 Mining
+</h3>
+
+<p>
+    Mining is the primary mechanism for the creation of
+    new NEC according to the protocol.
+</p>
+
+
+<h3>
+    15.2 Secondary Transfer
+</h3>
+
+<p>
+    An individual who does not mine can obtain NEC through
+    a voluntary transaction with an existing holder.
+</p>
+
+
+<h3>
+    15.3 No Guaranteed Value
+</h3>
+
+<p>
+    Possession of NEC does not guarantee a particular
+    monetary value or exchange rate.
+</p>
+
+
+<!-- =====================================================
+     16. HUU KHANG
+     ===================================================== -->
+
+<h2 id="units">
+    16. Huu Khang — Smallest Unit
+</h2>
+
+<p>
+    NienCoin is divisible into 100,000,000 units per NEC.
+</p>
+
+<div class="formula">
+
+    1 NEC = 100,000,000 Huu Khang
+
+</div>
+
+<p>
+    The Huu Khang denomination allows transactions to
+    represent amounts smaller than one whole NEC.
+</p>
+
+
+<h3>
+    16.1 Examples
+</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>NEC</th>
+<th>Huu Khang</th>
+</tr>
+
+<tr>
+<td>1 NEC</td>
+<td>100,000,000</td>
+</tr>
+
+<tr>
+<td>0.1 NEC</td>
+<td>10,000,000</td>
+</tr>
+
+<tr>
+<td>0.01 NEC</td>
+<td>1,000,000</td>
+</tr>
+
+<tr>
+<td>0.001 NEC</td>
+<td>100,000</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- =====================================================
+     17. GENESIS
+     ===================================================== -->
+
+<h2 id="genesis">
+    17. Genesis Block
+</h2>
+
+<p>
+    The genesis block is the first block of the NienCoin
+    blockchain.
+</p>
+
+<p>
+    It establishes the initial chain state from which
+    subsequent blocks are linked.
+</p>
+
+
+<h3>
+    17.1 Genesis Immutability
+</h3>
+
+<p>
+    Once the network's genesis block is established as
+    part of the protocol, compatible nodes must recognize
+    the same genesis identity.
+</p>
+
+
+<h3>
+    17.2 Genesis Configuration
+</h3>
+
+<p>
+    The final implementation should publish the genesis
+    block hash and all consensus-critical genesis
+    parameters.
+</p>
+
+
+<!-- =====================================================
+     18. SECURITY
+     ===================================================== -->
+
+<h2 id="security">
+    18. Security Model
+</h2>
+
+<p>
+    NienCoin's security depends on cryptographic
+    primitives, consensus validation, Proof-of-Work,
+    node diversity, and correct implementation.
+</p>
+
+
+<h3>
+    18.1 Cryptographic Integrity
+</h3>
+
+<p>
+    Cryptographic hashes are used to detect changes to
+    data and to link blockchain history.
+</p>
+
+
+<h3>
+    18.2 Proof-of-Work Security
+</h3>
+
+<p>
+    Rewriting history requires reproducing the associated
+    Proof-of-Work and competing with continuing chain
+    growth.
+</p>
+
+
+<h3>
+    18.3 Majority Mining Power
+</h3>
+
+<p>
+    A Proof-of-Work network is exposed to increased
+    reorganization and censorship risk if an attacker
+    controls a sufficiently large share of effective
+    mining power.
+</p>
+
+
+<h3>
+    18.4 Software Bugs
+</h3>
+
+<p>
+    Cryptographic security does not protect against
+    implementation errors. Consensus software must
+    therefore be tested carefully.
+</p>
+
+
+<!-- =====================================================
+     19. DECENTRALIZATION
+     ===================================================== -->
+
+<h2 id="decentralization">
+    19. Decentralization
+</h2>
+
+<p>
+    Decentralization is not a single technical feature.
+    It depends on the number and diversity of nodes,
+    miners, developers, infrastructure providers and
+    users.
+</p>
+
+
+<h3>
+    19.1 Node Diversity
+</h3>
+
+<p>
+    A healthy network should have multiple independent
+    nodes rather than relying on one server.
+</p>
+
+
+<h3>
+    19.2 Mining Diversity
+</h3>
+
+<p>
+    Mining concentration can increase the influence of
+    large operators over block production.
+</p>
+
+
+<h3>
+    19.3 Open Participation
+</h3>
+
+<p>
+    The project aims to make participation possible
+    through publicly available software and protocol
+    documentation.
+</p>
+
+
+<!-- =====================================================
+     20. ECONOMICS
+     ===================================================== -->
+
+<h2 id="economics">
+    20. Economic Model
+</h2>
+
+<p>
+    NienCoin's monetary model combines limited supply
+    with Proof-of-Work issuance.
+</p>
+
+<p>
+    The economic value of NEC is not determined by the
+    protocol alone. Market demand, liquidity, adoption,
+    utility and participant behavior can all affect value.
+</p>
+
+
+<h3>
+    20.1 Mining Incentive
+</h3>
+
+<p>
+    The block reward provides an incentive for miners
+    to contribute computational resources to the network.
+</p>
+
+
+<h3>
+    20.2 Network Security
+</h3>
+
+<p>
+    Mining incentives are connected to network security
+    because miners have an economic reason to produce
+    valid blocks.
+</p>
+
+
+<h3>
+    20.3 Market Value
+</h3>
+
+<p>
+    The protocol does not guarantee that NEC will have
+    a particular market price.
+</p>
+
+
+<div class="warning">
+
+    <strong>
+        No investment guarantee:
+    </strong>
+
+    NienCoin should not be described as guaranteeing
+    profit, appreciation, mining income or exchange
+    liquidity.
+
+</div>
+
+
+<!-- =====================================================
+     21. FEES
+     ===================================================== -->
+
+<h2 id="fees">
+    21. Transaction Fees
+</h2>
+
+<p>
+    Transaction fees can be used to compensate miners
+    for including transactions in blocks, particularly
+    as block subsidy changes over time.
+</p>
+
+<p>
+    The final NienCoin fee policy must be defined by
+    consensus and transaction-selection rules.
+</p>
+
+
+<h3>
+    21.1 Fee Validation
+</h3>
+
+<p>
+    Nodes must verify that a transaction does not create
+    unauthorized value when fees are calculated.
+</p>
+
+
+<h3>
+    21.2 Miner Selection
+</h3>
+
+<p>
+    Miners may prioritize transactions according to
+    transaction fees and other policy rules, provided
+    that consensus validity is preserved.
+</p>
+
+
+<!-- =====================================================
+     22. VALIDATION
+     ===================================================== -->
+
+<h2 id="validation">
+    22. Transaction Validation
+</h2>
+
+<p>
+    A transaction should only enter an accepted block if
+    it satisfies all applicable consensus conditions.
+</p>
+
+
+<h3>
+    22.1 Basic Validation Principles
+</h3>
+
+<ul>
+
+<li>
+    Transaction structure must be valid.
+</li>
+
+<li>
+    Authorization must be valid.
+</li>
+
+<li>
+    Inputs or account state must permit the transfer.
+</li>
+
+<li>
+    The transaction must not create unauthorized value.
+</li>
+
+<li>
+    Required fees must be satisfied.
+</li>
+
+</ul>
+
+
+<h3>
+    22.2 Block-Level Validation
+</h3>
+
+<p>
+    Block validation combines transaction validation with
+    block-level rules such as Proof-of-Work, block linkage,
+    timestamps, reward limits, and difficulty requirements.
+</p>
+
+
+<!-- =====================================================
+     23. FORKS
+     ===================================================== -->
+
+<h2 id="forks">
+    23. Forks and Chain Selection
+</h2>
+
+<p>
+    Two valid blocks can occasionally be produced at
+    approximately the same time.
+</p>
+
+<p>
+    Different nodes may temporarily observe different
+    tips of the chain.
+</p>
+
+
+<h3>
+    23.1 Temporary Forks
+</h3>
+
+<p>
+    A temporary fork can resolve when additional valid
+    Proof-of-Work causes one branch to become preferred
+    according to the chain-selection rule.
+</p>
+
+
+<h3>
+    23.2 Consensus Forks
+</h3>
+
+<p>
+    A permanent consensus split can occur when different
+    software versions enforce incompatible consensus
+    rules.
+</p>
+
+
+<h3>
+    23.3 Protocol Upgrades
+</h3>
+
+<p>
+    Consensus changes should be documented carefully
+    because incompatible changes can divide the network.
+</p>
+
+
+<!-- =====================================================
+     24. REORGANIZATIONS
+     ===================================================== -->
+
+<h2 id="reorganizations">
+    24. Chain Reorganizations
+</h2>
+
+<p>
+    A chain reorganization occurs when a node changes
+    its preferred chain because another valid branch has
+    greater accumulated consensus weight according to
+    the network's chain-selection rule.
+</p>
+
+<p>
+    Applications should not assume that an unconfirmed
+    transaction or newly mined block is permanently
+    irreversible immediately after first observation.
+</p>
+
+
+<!-- =====================================================
+     25. CONFIRMATIONS
+     ===================================================== -->
+
+<h2 id="confirmations">
+    25. Confirmations
+</h2>
+
+<p>
+    A transaction included in a block has one block-level
+    confirmation. Additional blocks built on top of that
+    block increase its depth in the chain.
+</p>
+
+<p>
+    More confirmations generally make a reorganization
+    affecting that transaction more difficult, assuming
+    the network's Proof-of-Work security assumptions hold.
+</p>
+
+
+<!-- =====================================================
+     26. DOUBLE SPENDING
+     ===================================================== -->
+
+<h2 id="double-spending">
+    26. Double Spending
+</h2>
+
+<p>
+    Double spending refers to attempting to use the same
+    spendable value more than once.
+</p>
+
+<p>
+    Consensus validation prevents conflicting transactions
+    from both becoming valid representations of the same
+    underlying spendable state.
+</p>
+
+
+<h3>
+    26.1 Confirmation Risk
+</h3>
+
+<p>
+    Transactions that have not yet received sufficient
+    confirmation should not automatically be treated as
+    irreversible.
+</p>
+
+
+<!-- =====================================================
+     27. ATTACKS
+     ===================================================== -->
+
+<h2 id="attacks">
+    27. Security Threats
+</h2>
+
+<p>
+    NienCoin may face technical attacks common to public
+    Proof-of-Work blockchain systems.
+</p>
+
+
+<h3>
+    27.1 Majority Hashrate Attack
+</h3>
+
+<p>
+    An entity controlling a large fraction of network
+    mining power may have increased ability to reorganize
+    recent blocks or influence transaction ordering.
+</p>
+
+
+<h3>
+    27.2 Sybil Attack
+</h3>
+
+<p>
+    An attacker may create many network identities.
+    Peer-to-peer network design should therefore avoid
+    treating the number of IP addresses as equivalent
+    to economic or computational consensus power.
+</p>
+
+
+<h3>
+    27.3 Eclipse Attack
+</h3>
+
+<p>
+    A node may be isolated from honest peers if an attacker
+    controls enough of its network connections.
+</p>
+
+
+<h3>
+    27.4 Denial of Service
+</h3>
+
+<p>
+    Nodes may be targeted with excessive or malformed
+    network traffic.
+</p>
+
+
+<h3>
+    27.5 Consensus Bug
+</h3>
+
+<p>
+    An implementation bug affecting validation can cause
+    incompatible nodes to disagree about the blockchain.
+</p>
+
+
+<!-- =====================================================
+     28. PRIVACY
+     ===================================================== -->
+
+<h2 id="privacy">
+    28. Privacy
+</h2>
+
+<p>
+    A public blockchain generally exposes transaction
+    information to network participants.
+</p>
+
+<p>
+    NienCoin should not be described as automatically
+    anonymous merely because users interact through
+    cryptographic addresses.
+</p>
+
+
+<h3>
+    28.1 Public Ledger
+</h3>
+
+<p>
+    Blockchain data may allow observers to analyze
+    transaction relationships and activity.
+</p>
+
+
+<h3>
+    28.2 User Responsibility
+</h3>
+
+<p>
+    Users should understand that publishing or linking
+    an address to a real-world identity can reduce
+    practical privacy.
+</p>
+
+
+<!-- =====================================================
+     29. SOFTWARE
+     ===================================================== -->
+
+<h2 id="software">
+    29. NienCoin Core Software
+</h2>
+
+<p>
+    NienCoin Core is intended to provide the software
+    necessary for interacting with the blockchain.
+</p>
+
+
+<h3>
+    29.1 Core Responsibilities
+</h3>
+
+<ul>
+
+<li>Blockchain validation</li>
+
+<li>Transaction processing</li>
+
+<li>Block processing</li>
+
+<li>Peer communication</li>
+
+<li>Mining integration</li>
+
+<li>Wallet functionality where implemented</li>
+
+</ul>
+
+
+<h3>
+    29.2 Compatibility
+</h3>
+
+<p>
+    Nodes running compatible consensus software should
+    independently arrive at the same valid chain state
+    when supplied with the same valid blockchain history.
+</p>
+
+
+<!-- =====================================================
+     30. OPEN SOURCE
+     ===================================================== -->
+
+<h2 id="open-source">
+    30. Open Development
+</h2>
+
+<p>
+    NienCoin is intended to be developed transparently,
+    with source code and technical documentation available
+    for inspection.
+</p>
+
+<p>
+    Open development allows independent contributors to
+    inspect implementation decisions, report bugs and
+    propose improvements.
+</p>
+
+
+<h3>
+    30.1 Reproducibility
+</h3>
+
+<p>
+    Build instructions should allow users and developers
+    to reproduce official software releases from published
+    source code whenever practical.
+</p>
+
+
+<h3>
+    30.2 Testing
+</h3>
+
+<p>
+    Consensus-critical software should receive extensive
+    testing before production deployment.
+</p>
+
+
+<!-- =====================================================
+     31. GOVERNANCE
+     ===================================================== -->
+
+<h2 id="governance">
+    31. Governance
+</h2>
+
+<p>
+    NienCoin does not rely on a single centralized
+    administrator to determine whether ordinary blocks
+    are valid.
+</p>
+
+<p>
+    Network participants enforce the consensus rules
+    implemented by their software.
+</p>
+
+
+<h3>
+    31.1 Protocol Changes
+</h3>
+
+<p>
+    Proposed consensus changes should be documented,
+    reviewed and tested before adoption.
+</p>
+
+
+<h3>
+    31.2 Community Participation
+</h3>
+
+<p>
+    Developers, node operators, miners and users can
+    contribute to discussions surrounding future
+    development.
+</p>
+
+
+<!-- =====================================================
+     32. ROADMAP
+     ===================================================== -->
+
+<h2 id="roadmap">
+    32. Development Roadmap
+</h2>
+
+
+<h3>
+    Phase 1 — Core Blockchain
+</h3>
+
+<ul>
+
+<li>Blockchain implementation</li>
+
+<li>Genesis block</li>
+
+<li>Proof-of-Work</li>
+
+<li>Block validation</li>
+
+<li>Transaction processing</li>
+
+<li>Mining</li>
+
+</ul>
+
+
+<h3>
+    Phase 2 — Wallet
+</h3>
+
+<ul>
+
+<li>Wallet generation</li>
+
+<li>Address management</li>
+
+<li>Transaction creation</li>
+
+<li>Transaction signing</li>
+
+<li>Backup and recovery</li>
+
+</ul>
+
+
+<h3>
+    Phase 3 — Network
+</h3>
+
+<ul>
+
+<li>Peer discovery</li>
+
+<li>Network synchronization</li>
+
+<li>Public nodes</li>
+
+<li>Network monitoring</li>
+
+</ul>
+
+
+<h3>
+    Phase 4 — Explorer
+</h3>
+
+<ul>
+
+<li>Block explorer</li>
+
+<li>Transaction explorer</li>
+
+<li>Address lookup</li>
+
+<li>Network statistics</li>
+
+</ul>
+
+
+<h3>
+    Phase 5 — Ecosystem
+</h3>
+
+<ul>
+
+<li>Public documentation</li>
+
+<li>Mining infrastructure</li>
+
+<li>Developer tools</li>
+
+<li>Testing infrastructure</li>
+
+<li>Security review</li>
+
+</ul>
+
+
+<!-- =====================================================
+     33. LIMITATIONS
+     ===================================================== -->
+
+<h2 id="limitations">
+    33. Limitations
+</h2>
+
+<p>
+    NienCoin is a software project and may contain bugs,
+    incomplete components, performance limitations and
+    security weaknesses.
+</p>
+
+<p>
+    A blockchain protocol cannot guarantee adoption,
+    liquidity, exchange availability or market value.
+</p>
+
+<p>
+    Network security depends on actual participation.
+    A small network with limited mining power can have
+    weaker resistance to certain attacks than a large,
+    highly distributed network.
+</p>
+
+
+<!-- =====================================================
+     34. RISKS
+     ===================================================== -->
+
+<h2 id="risks">
+    34. Risks
+</h2>
+
+
+<h3>
+    34.1 Technical Risk
+</h3>
+
+<p>
+    Software bugs can affect wallets, nodes, miners or
+    consensus validation.
+</p>
+
+
+<h3>
+    34.2 Network Risk
+</h3>
+
+<p>
+    A small number of active peers or miners can make
+    the network more vulnerable to disruption.
+</p>
+
+
+<h3>
+    34.3 Economic Risk
+</h3>
+
+<p>
+    The value of NEC may be highly uncertain and can
+    change independently of the technical quality of
+    the software.
+</p>
+
+
+<h3>
+    34.4 Development Risk
+</h3>
+
+<p>
+    Future features may be delayed, redesigned or
+    abandoned.
+</p>
+
+
+<h3>
+    34.5 Regulatory Risk
+</h3>
+
+<p>
+    Digital-currency projects may be subject to laws
+    and regulations that vary between jurisdictions.
+</p>
+
+
+<!-- =====================================================
+     35. FUTURE
+     ===================================================== -->
+
+<h2 id="future">
+    35. Future Development
+</h2>
+
+<p>
+    Future development may focus on improving the
+    reliability, usability, security and transparency
+    of the NienCoin ecosystem.
+</p>
+
+
+<h3>
+    35.1 Protocol Improvements
+</h3>
+
+<p>
+    Consensus improvements may be considered when
+    technically justified and compatible with the
+    project's design principles.
+</p>
+
+
+<h3>
+    35.2 Wallet Improvements
+</h3>
+
+<p>
+    Wallet software may become easier to use while
+    maintaining strong control over private credentials.
+</p>
+
+
+<h3>
+    35.3 Developer Infrastructure
+</h3>
+
+<p>
+    Documentation, APIs, testing tools and development
+    environments may be expanded.
+</p>
+
+
+<h3>
+    35.4 Network Infrastructure
+</h3>
+
+<p>
+    Public nodes, monitoring systems and explorer
+    infrastructure may improve network visibility.
+</p>
+
+
+<!-- =====================================================
+     36. CONCLUSION
+     ===================================================== -->
+
+<h2 id="conclusion">
+    36. Conclusion
+</h2>
+
+<p>
+    NienCoin is an independent Proof-of-Work Layer-1
+    blockchain designed around a limited monetary supply,
+    mining-based issuance and peer-to-peer participation.
+</p>
+
+<p>
+    The network defines a maximum supply of
+    20,000,000 NEC and an initial block reward of
+    10 NEC, with a target block interval of five minutes.
+</p>
+
+<p>
+    The currency is divisible into 100,000,000 Huu Khang
+    per NEC.
+</p>
+
+<div class="formula">
+
+    1 NEC = 100,000,000 Huu Khang
+
+</div>
+
+<p>
+    The fundamental objective of the project is to build
+    a blockchain whose operation can be independently
+    verified by nodes and whose monetary issuance follows
+    explicit protocol rules.
+</p>
+
+<p>
+    The technical implementation remains the ultimate
+    source of truth for consensus behavior. This
+    whitepaper describes the intended design and should
+    evolve alongside the finalized NienCoin protocol
+    specification.
+</p>
+
+
+<!-- =====================================================
+     37. AUTHOR
+     ===================================================== -->
+
+<h2 id="author">
+    37. Author
+</h2>
+
+<p>
+    <strong>
+        Hồ Hữu Khang
+    </strong>
+</p>
+
+<p>
+    Founder and author of the NienCoin project.
+</p>
+
+<p>
+    Whitepaper Version 1.0
+</p>
+
+<p>
+    August 23, 2026
+</p>
+
+
+<div class="note">
+
+    <strong>
+        Document status:
+    </strong>
+
+    This document describes the intended design of
+    NienCoin. Consensus-critical implementation details
+    should be considered authoritative only when they
+    are explicitly defined and enforced by the released
+    NienCoin Core software.
+
+</div>
+
+
+<!-- =====================================================
+     BACK
+     ===================================================== -->
+
+<a
+    href="index.html"
+    class="back"
+>
+    ← Back to NienCoin
+</a>
+
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <strong>
+        NienCoin (NEC)
+    </strong>
+
+    <br>
+
+    Independent Proof-of-Work Layer-1 Blockchain
+
+    <br><br>
+
+    Written by Hồ Hữu Khang
+
+    <br>
+
+    August 23, 2026
+
+    <br><br>
+
+    NienCoin Project © 2026
+
+</footer>
+
+
+</body>
+
+</html>
